@@ -56,13 +56,13 @@ const ambientePost = async (req, res = response) => {
   
 
 const ambientePut = async (req, res = response) => {
-    const { Id } = req.params;
-    const { numeroAmbiente, temperatura, nombreUsuario } = req.query; // Campos a actualizar
+    const { numeroAmbiente, } = req.query;
+    const { nuevoAmbiente, temperatura, nombreUsuario } = req.query; // Campos a actualizar
   
     try {
       const ambienteActualizado = await Ambiente.findOneAndUpdate(
-        { Id:Id },
-        { numeroAmbiente, temperatura, nombreUsuario },
+        { numeroAmbiente:numeroAmbiente },
+        { numeroAmbiente:nuevoAmbiente, temperatura, nombreUsuario },
         { new: true }
       );
   
